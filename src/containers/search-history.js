@@ -1,38 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
-import { searchGifs } from '../actions/index';
 
 class SearchHistory extends Component {
-  renderSearchHistory(history) {
+
+  
+  renderHistory(item) {
+    console.log(item);
+    if (item.query === '') {
+      return;
+    }
+
     return (
-      <li>
-        {history}
+      <li key={item.query}>
+        {item.query}
       </li>
     );
   }
 
   render() {
 
-    if (!this.props.historyResults) {
+    if (!this.props.results) {
       return '';
     }
+    // console.log('History', this.props.results);
 
     return (
-      <ul>
-        {this.props.historyResults.map(this.renderSearchHistory)}
-      </ul>
+      <div>
+        { this.props.results.map(this.renderHistory) }
+          
+      </div>
     );
   }
 }
 
-function mapStateToProps({historyResults}) {
-  return { historyResults }
+function mapStateToProps({results}) {
+  return { results }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchGifs }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchHistory);
+export default connect(mapStateToProps)(SearchHistory);

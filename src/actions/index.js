@@ -15,7 +15,7 @@ export const trendingGifs = async () => {
   return {
     type: TRENDING_GIFS,
     payload: {
-      query: 'trending',
+      query: '',
       res: res.data
     }
   };

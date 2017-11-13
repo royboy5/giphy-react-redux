@@ -26,7 +26,7 @@ class SearchResults extends Component {
       return '';
     }
 
-    console.log("SR:", this.props.results);
+    // console.log("SR:", this.props.results);
     
     return (
       <div>
