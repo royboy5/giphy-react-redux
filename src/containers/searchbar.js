@@ -22,6 +22,10 @@ class SearchBar extends Component {
 
   onFormSubmit(e) {
     e.preventDefault();
+    if (!this.state.query) {
+      return;
+    }
+
     this.props.searchGifs(this.state.query);
     this.props.searchHistory(this.state.query);
 
