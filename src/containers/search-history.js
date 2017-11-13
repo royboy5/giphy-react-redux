@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class SearchHistory extends Component {
-
-  
   renderHistory(item) {
-    console.log(item);
     if (item.query === '') {
       return;
     }
@@ -22,7 +19,6 @@ class SearchHistory extends Component {
     if (!this.props.results) {
       return '';
     }
-    // console.log('History', this.props.results);
 
     return (
       <div>

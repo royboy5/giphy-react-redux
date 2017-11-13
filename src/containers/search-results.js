@@ -21,13 +21,12 @@ class SearchResults extends Component {
   }
 
   render() {
+    console.log("SR:", this.props.results);
     
     if (this.props.results.length < 1) {
       return '';
     }
 
-    // console.log("SR:", this.props.results);
-    
     return (
       <div>
         {this.props.results[0].res.data.map(this.renderSearch)}
