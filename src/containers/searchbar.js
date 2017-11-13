@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { searchGifs, searchHistory } from '../actions/index';
+import { searchGifs } from '../actions/index';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -27,7 +27,6 @@ class SearchBar extends Component {
     }
 
     this.props.searchGifs(this.state.query);
-    this.props.searchHistory(this.state.query);
 
     this.setState({ 
       query: ''
@@ -51,7 +50,7 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchGifs, searchHistory }, dispatch);
+  return bindActionCreators({ searchGifs }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);

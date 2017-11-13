@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { trendingGifs } from '../actions/index';
+
 class SearchResults extends Component {
+  componentDidMount() {
+    this.props.trendingGifs();
+  }    
 
   renderSearch(searchItem) {
     return (
@@ -16,20 +21,23 @@ class SearchResults extends Component {
   }
 
   render() {
-    if (!this.props.searchResults) {
+    
+    if (this.props.results.length < 1) {
       return '';
     }
 
+    console.log("SR:", this.props.results);
+    
     return (
       <div>
-        {this.props.searchResults.res.data.map(this.renderSearch)}
+        {this.props.results[0].res.data.map(this.renderSearch)}
       </div>
     );
   }
 }
 
-function mapStateToProps({searchResults}) {
-  return { searchResults }
+function mapStateToProps({results}) {
+  return { results }
 }
 
-export default connect(mapStateToProps)(SearchResults);
+export default connect(mapStateToProps, {trendingGifs})(SearchResults);
