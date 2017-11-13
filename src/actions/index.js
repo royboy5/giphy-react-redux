@@ -21,7 +21,7 @@ export const searchGifs = async (query) => {
   const url = `${SEARCH_URL}?q=${query}&api_key=${API_KEY}&limit=${LIMIT}`;
   const res = await axios.get(url); 
 
-  console.log('Action:', res.data);
+  // console.log('Action:', res.data);
 
   return {
     type: SEARCH_GIFS,

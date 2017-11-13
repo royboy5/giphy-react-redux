@@ -23,8 +23,8 @@ class SearchBar extends Component {
 
   onFormSubmit(e) {
     e.preventDefault();
-    
-    this.props.searchGifs(this.state.query);
+    console.log('state', this.state);
+    this.props.searchGifs(this.state.query, this.state.histoy);
 
     this.setState({ 
       query: '',

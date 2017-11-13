@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class SearchResults extends Component {
+class SearchHistory extends Component {
   renderSearch(searchItem) {
     return (
       <div key={searchItem.id}>
@@ -19,10 +19,11 @@ class SearchResults extends Component {
     if (!this.props.searchResults) {
       return '';
     }
+    console.log(this.props.searchResults.history);
 
     return (
       <div>
-        { this.props.searchResults.res.data.map(this.renderSearch)}
+history
       </div>
     );
   }
@@ -32,4 +33,4 @@ function mapStateToProps({searchResults}) {
   return { searchResults }
 }
 
-export default connect(mapStateToProps)(SearchResults);
+export default connect(mapStateToProps)(SearchHistory);
