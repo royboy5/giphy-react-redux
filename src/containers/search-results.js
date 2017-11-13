@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class SearchResults extends Component {
+
   renderSearch(searchItem) {
     return (
       <div key={searchItem.id}>
@@ -15,14 +16,13 @@ class SearchResults extends Component {
   }
 
   render() {
-
     if (!this.props.searchResults) {
       return '';
     }
 
     return (
       <div>
-        { this.props.searchResults.res.data.map(this.renderSearch)}
+        {this.props.searchResults.res.data.map(this.renderSearch)}
       </div>
     );
   }

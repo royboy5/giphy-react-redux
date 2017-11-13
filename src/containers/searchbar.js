@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { searchGifs } from '../actions/index';
+import { searchGifs, searchHistory } from '../actions/index';
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
 
     this.state = { 
-      query: '',
-      history: []
+      query: ''
     };
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -23,12 +22,11 @@ class SearchBar extends Component {
 
   onFormSubmit(e) {
     e.preventDefault();
-    console.log('state', this.state);
-    this.props.searchGifs(this.state.query, this.state.histoy);
+    this.props.searchGifs(this.state.query);
+    this.props.searchHistory(this.state.query);
 
     this.setState({ 
-      query: '',
-      history: [this.state.query, ...this.state.history].slice(0,4)
+      query: ''
     });
   }
 
@@ -49,7 +47,7 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchGifs }, dispatch);
+  return bindActionCreators({ searchGifs, searchHistory }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);

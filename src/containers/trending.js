@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import { trendingGifs } from '../actions/index';
 
 class Trending extends Component {
+
+  componentDidMount() {
+    this.props.trendingGifs();
+  }
 
   renderSearch(searchItem) {
     return (
@@ -20,13 +23,11 @@ class Trending extends Component {
 
   render() {
     if (!this.props.trendingResults) {
-      this.props.trendingGifs();
       return (
         <div>Loading gifs</div>
       );
     }
 
-    console.log('trending', this.props.trendingResults.data);
     return (
       <div>
         {this.props.trendingResults.data.map(this.renderSearch)}
@@ -39,8 +40,8 @@ function mapStateToProps({trendingResults}) {
   return { trendingResults }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ trendingGifs }, dispatch);
-}
+// function mapDispatchToProps(dispatch) {
+//   return bindActionCreators({ trendingGifs }, dispatch);
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Trending);
+export default connect(mapStateToProps, {trendingGifs})(Trending);

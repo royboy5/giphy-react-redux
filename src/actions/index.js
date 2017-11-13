@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TRENDING_GIFS, SEARCH_GIFS } from './types';
+import { TRENDING_GIFS, SEARCH_GIFS, SEARCH_HISTORY } from './types';
 
 const API_KEY = 'i74q56cKUKi6MRpPfPNNLbqLXBxKGrqy';
 const TRENDING_URL = 'http://api.giphy.com/v1/gifs/trending';
@@ -21,13 +21,20 @@ export const searchGifs = async (query) => {
   const url = `${SEARCH_URL}?q=${query}&api_key=${API_KEY}&limit=${LIMIT}`;
   const res = await axios.get(url); 
 
-  // console.log('Action:', res.data);
-
   return {
     type: SEARCH_GIFS,
     payload: {
       query: query,
       res: res.data
+    }
+  };
+}
+
+export const searchHistory = (query) => {
+  return {
+    type: SEARCH_HISTORY,
+    payload: {
+      query: query
     }
   };
 }
