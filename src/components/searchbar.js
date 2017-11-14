@@ -5,10 +5,6 @@ import styled from 'styled-components';
 
 import { searchGifs } from '../actions/index';
 
-const Form = styled.form`
-
-`;
-
 const Input = styled.input`
   width: 555px;
   background: #fff;
@@ -73,7 +69,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.onFormSubmit}>
+      <form onSubmit={this.onFormSubmit}>
         <Input
           placeholder="Seach Gifs"
           value={this.state.query}
@@ -82,7 +78,7 @@ class SearchBar extends Component {
           onBlur={this.props.hideMenu}
         />
         <Button type="submit">Submit</Button>
-      </Form>
+      </form>
     );
   }
 }
