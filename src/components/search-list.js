@@ -25,10 +25,6 @@ class SearchList extends Component {
     }
     
     const searchItems = this.props.results.map(item => {
-      // if (item.query === '') {
-      //   return;
-      // }
-      
       return (
         <SearchListItem 
           key={item.query}

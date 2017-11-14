@@ -10,8 +10,6 @@ export const trendingGifs = async () => {
   const url = `${TRENDING_URL}?api_key=${API_KEY}&limit=${LIMIT}`;
   const res = await axios.get(url);
 
-  console.log("Action Trend", res.data);
-
   return {
     type: TRENDING_GIFS,
     payload: {
@@ -25,9 +23,7 @@ export const trendingGifs = async () => {
 export const searchGifs = async (query) => {
   const url = `${SEARCH_URL}?q=${query}&api_key=${API_KEY}&limit=${LIMIT}`;
   const res = await axios.get(url); 
-
-  console.log("Action Search", res.data);
-
+  
   return {
     type: SEARCH_GIFS,
     payload: {

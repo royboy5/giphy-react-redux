@@ -72,7 +72,6 @@ class SearchBar extends Component {
   }
 
   render() {
-    console.log("props", this.props);
     return (
       <Form onSubmit={this.onFormSubmit}>
         <Input
