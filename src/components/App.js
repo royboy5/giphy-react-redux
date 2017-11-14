@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-import SearchBar from '../containers/searchbar';
-import SearchHistory from '../containers/search-history';
-import SearchList from '../containers/search-results';
+import SearchBar from './searchbar';
+import SearchList from './search-list';
+import Results from './search-results';
 
 class App extends Component {
   render() {
@@ -12,8 +12,8 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <SearchBar />
-          <SearchHistory />
           <SearchList />
+          <Results />
         </div>
       </BrowserRouter> 
     );
