@@ -21,8 +21,6 @@ class SearchResults extends Component {
   }
 
   render() {
-    console.log("SR:", this.props.results);
-    
     if (this.props.results.length < 1) {
       return '';
     }

@@ -1,0 +1,11 @@
+body {
+  background-color: #ebebeb;
+  font: 1rem "PT Sans", sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}

@@ -6,7 +6,6 @@ import SearchListItem from './search-list-item';
 import { searchGifs } from '../actions/index';
 
 class SearchList extends Component {
-
   render() {
     
     if (!this.props.results) {
@@ -27,7 +26,7 @@ class SearchList extends Component {
     });
     
     return (
-      <div>
+      <div className="searchHistory">
         {searchItems}          
       </div>
     );
