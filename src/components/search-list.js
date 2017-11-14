@@ -26,17 +26,21 @@ class SearchList extends Component {
     
     const searchItems = this.props.results.map(item => {
       return (
-        <SearchListItem 
-          key={item.query}
-          query={item.query}
-          onItemSelect={this.props.searchGifs} />
+          <SearchListItem 
+            key={item.query}
+            query={item.query}
+            onItemSelect={this.props.searchGifs}
+            hideMenu={this.props.hideMenu}
+          />
       );
     });
     
     return (
-      <SearchHistory>
-        {searchItems}          
-      </SearchHistory>
+      <div onMouseLeave={this.props.hideMenu}>
+        <SearchHistory>
+          {searchItems}          
+        </SearchHistory>
+      </div>
     );
   }
 }

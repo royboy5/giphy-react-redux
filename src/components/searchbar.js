@@ -61,7 +61,8 @@ class SearchBar extends Component {
     }
 
     this.props.searchGifs(this.state.query);
-
+    this.props.hideMenu();
+    
     this.setState({ 
       query: ''
     });

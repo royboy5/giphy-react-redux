@@ -11,9 +11,15 @@ const Item = styled.li`
   }
 `;
 
-const searchListItem = ( {query, onItemSelect} ) => {
+const searchListItem = ( {query, onItemSelect, hideMenu} ) => {
   return (
-    <Item onClick={() => onItemSelect(query)}>{query}</Item>
+    <Item onClick={() => {
+        onItemSelect(query);
+        hideMenu();
+      }
+    }>
+      {query}    
+    </Item>
   );
 } 
 

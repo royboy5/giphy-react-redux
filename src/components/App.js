@@ -34,7 +34,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <SearchBar showMenu={this.show} hideMenu={this.hide} />
-          { this.state.show ? <SearchList /> : null }
+          { this.state.show ? <SearchList hideMenu={this.hide} /> : null }
           <Results />
         </div>
       </BrowserRouter> 
