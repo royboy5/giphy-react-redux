@@ -13,6 +13,8 @@ const SearchHistory = styled.ul`
   padding: 0;
   margin: 0;
   border: 1px solid #ccc;
+  position: absolute;
+  top: 70px;
 `;
 
 class SearchList extends Component {

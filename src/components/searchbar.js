@@ -79,6 +79,8 @@ class SearchBar extends Component {
           placeholder="Seach Gifs"
           value={this.state.query}
           onChange={this.onInputChange}
+          onFocus={this.props.showMenu}
+          onBlur={this.props.hideMenu}
         />
         <Button type="submit">Submit</Button>
       </Form>
