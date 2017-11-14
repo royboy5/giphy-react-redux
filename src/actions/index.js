@@ -4,7 +4,7 @@ import { TRENDING_GIFS, SEARCH_GIFS } from './types';
 const API_KEY = 'i74q56cKUKi6MRpPfPNNLbqLXBxKGrqy';
 const TRENDING_URL = 'http://api.giphy.com/v1/gifs/trending';
 const SEARCH_URL = 'http://api.giphy.com/v1/gifs/search';
-const LIMIT = '5'; // API DEFAULT is 25
+const LIMIT = '10'; // API DEFAULT is 25
 
 export const trendingGifs = async () => {
   const url = `${TRENDING_URL}?api_key=${API_KEY}&limit=${LIMIT}`;
