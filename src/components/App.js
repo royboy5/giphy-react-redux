@@ -10,19 +10,20 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { show: false }
+    this.state = { show: true }
 
-    this.onInputFocus = this.onInputFocus.bind(this);
-    this.onInputBlur = this.onInputBlur.bind(this);
+    this.show = this.show.bind(this);
+    this.hide = this.hide.bind(this);
+    
   }
 
-  onInputFocus() {
+  show() {
     this.setState({
       show: true
     });
   }
 
-  onInputBlur() {
+  hide() {
     this.setState({
       show: false
     });
@@ -32,7 +33,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <SearchBar showMenu={this.onInputFocus} hideMenu={this.onInputBlur} />
+          <SearchBar showMenu={this.show} hideMenu={this.hide} />
           { this.state.show ? <SearchList /> : null }
           <Results />
         </div>
