@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import styled from 'styled-components';
 
 import SearchListItem from './search-list-item';
 import { searchGifs } from '../actions/index';
+
+const SearchHistory = styled.ul`
+  background: #fff;
+  color: #000;
+  width: 590px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+`;
 
 class SearchList extends Component {
   render() {
@@ -13,9 +23,9 @@ class SearchList extends Component {
     }
     
     const searchItems = this.props.results.map(item => {
-      if (item.query === '') {
-        return;
-      }
+      // if (item.query === '') {
+      //   return;
+      // }
       
       return (
         <SearchListItem 
@@ -26,9 +36,9 @@ class SearchList extends Component {
     });
     
     return (
-      <div className="searchHistory">
+      <SearchHistory>
         {searchItems}          
-      </div>
+      </SearchHistory>
     );
   }
 }

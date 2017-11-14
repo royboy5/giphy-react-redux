@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { trendingGifs } from '../actions/index';
+
+const Results = styled.div`
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+const Gif = styled.div`
+  display: inline-block;
+  margin-bottom: 20px;
+`;
 
 class SearchResults extends Component {
   componentDidMount() {
@@ -10,13 +23,13 @@ class SearchResults extends Component {
 
   renderSearch(searchItem) {
     return (
-      <div key={searchItem.id}>
+      <Gif key={searchItem.id}>
         <iframe 
           src={searchItem.embed_url}
           title={searchItem.title}
           style={{border:0}}
         />
-      </div>
+      </Gif>
     );
   }
 
@@ -26,9 +39,9 @@ class SearchResults extends Component {
     }
 
     return (
-      <div>
+      <Results>
         {this.props.results[0].res.data.map(this.renderSearch)}
-      </div>
+      </Results>
     );
   }
 }
